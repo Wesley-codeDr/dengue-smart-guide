@@ -1,7 +1,9 @@
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import type { AssessmentStepProps } from "../AssessmentWizard";
+import HospitalsList from "@/components/HospitalsList";
 
 const calculateRiskLevel = (formData: any) => {
   let riskScore = 0;
@@ -28,6 +30,7 @@ const calculateRiskLevel = (formData: any) => {
 };
 
 const ResultStep = ({ onBack, formData }: AssessmentStepProps) => {
+  const [showHospitals, setShowHospitals] = useState(false);
   const riskLevel = calculateRiskLevel(formData);
 
   const recommendations = {
@@ -62,6 +65,12 @@ const ResultStep = ({ onBack, formData }: AssessmentStepProps) => {
 
   const currentRecommendation = recommendations[riskLevel];
 
+  const handleActionClick = () => {
+    if (riskLevel === "ALTO") {
+      setShowHospitals(true);
+    }
+  };
+
   return (
     <div className="space-y-6">
       <div
@@ -79,10 +88,13 @@ const ResultStep = ({ onBack, formData }: AssessmentStepProps) => {
               ? "bg-red-600 hover:bg-red-700"
               : "bg-primary-dark hover:bg-primary-dark/90"
           }`}
+          onClick={handleActionClick}
         >
           {currentRecommendation.action}
         </Button>
       </div>
+
+      {showHospitals && <HospitalsList />}
 
       <div className="space-y-4">
         <h4 className="font-medium text-gray-700">Recomendações Gerais:</h4>
