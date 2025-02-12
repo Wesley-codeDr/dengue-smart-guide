@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Features from "@/components/Features";
 import AssessmentCard from "@/components/AssessmentCard";
 import AssessmentWizard from "@/components/assessment/AssessmentWizard";
+import HospitalsList from "@/components/HospitalsList";
 
 const Index = () => {
   const [showAssessment, setShowAssessment] = useState(false);
@@ -31,6 +32,7 @@ const Index = () => {
                 description="Descubra se seus sintomas podem estar relacionados à dengue e receba orientações rápidas sobre os próximos passos a serem tomados."
                 onStart={handleStartAssessment}
               />
+              <HospitalsList />
               <Features />
             </>
           ) : (
