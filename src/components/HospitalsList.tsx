@@ -1,9 +1,14 @@
 
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ChevronDown } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 type Hospital = {
   id: string;
@@ -52,25 +57,57 @@ const HospitalsList = () => {
     );
   }
 
+  // Agrupar hospitais por cidade
+  const hospitalsByCity = hospitals.reduce((acc, hospital) => {
+    if (!acc[hospital.city]) {
+      acc[hospital.city] = [];
+    }
+    acc[hospital.city].push(hospital);
+    return acc;
+  }, {} as Record<string, Hospital[]>);
+
   return (
-    <Card className="p-6">
-      <h2 className="text-2xl font-semibold mb-6 text-center">Hospitais Parceiros</h2>
-      <div className="space-y-4">
-        {hospitals.map((hospital) => (
-          <Button
-            key={hospital.id}
-            variant="outline"
-            className="w-full flex items-center justify-between text-left"
-            onClick={() => handleHospitalClick(hospital.url)}
+    <Card className="p-6 bg-gradient-to-br from-white to-primary/5">
+      <h2 className="text-2xl font-semibold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary-dark to-primary-dark/80">
+        Hospitais Parceiros
+      </h2>
+      
+      <Accordion type="single" collapsible className="space-y-4">
+        {Object.entries(hospitalsByCity).map(([city, cityHospitals]) => (
+          <AccordionItem
+            key={city}
+            value={city}
+            className="border rounded-lg bg-white shadow-sm hover:shadow-md transition-all duration-300"
           >
-            <div>
-              <span className="font-medium">{hospital.name}</span>
-              <span className="text-sm text-muted-foreground block">{hospital.city}</span>
-            </div>
-            <ExternalLink className="h-4 w-4 text-muted-foreground" />
-          </Button>
+            <AccordionTrigger className="px-4 py-3 flex items-center justify-between w-full">
+              <div className="flex items-center gap-2">
+                <span className="text-lg font-medium text-gray-800">{city}</span>
+                <span className="text-sm text-gray-500">
+                  ({cityHospitals.length} {cityHospitals.length === 1 ? 'hospital' : 'hospitais'})
+                </span>
+              </div>
+              <ChevronDown className="h-5 w-5 text-gray-500 transition-transform duration-200" />
+            </AccordionTrigger>
+            
+            <AccordionContent>
+              <div className="px-4 py-2 space-y-2">
+                {cityHospitals.map((hospital) => (
+                  <div
+                    key={hospital.id}
+                    onClick={() => handleHospitalClick(hospital.url)}
+                    className="group flex items-center justify-between p-3 rounded-md hover:bg-primary/5 cursor-pointer transition-all duration-200"
+                  >
+                    <span className="font-medium text-gray-700 group-hover:text-primary-dark">
+                      {hospital.name}
+                    </span>
+                    <ExternalLink className="h-4 w-4 text-gray-400 group-hover:text-primary-dark transition-colors" />
+                  </div>
+                ))}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
         ))}
-      </div>
+      </Accordion>
     </Card>
   );
 };
