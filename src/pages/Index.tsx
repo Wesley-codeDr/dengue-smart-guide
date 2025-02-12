@@ -1,13 +1,16 @@
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Features from "@/components/Features";
 import AssessmentCard from "@/components/AssessmentCard";
+import AssessmentWizard from "@/components/assessment/AssessmentWizard";
 
 const Index = () => {
+  const [showAssessment, setShowAssessment] = useState(false);
+
   const handleStartAssessment = () => {
-    // This will be implemented in the next step
-    console.log("Starting assessment");
+    setShowAssessment(true);
   };
 
   return (
@@ -21,13 +24,18 @@ const Index = () => {
       
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto space-y-12">
-          <AssessmentCard
-            title="Avalie seus Sintomas"
-            description="Descubra se seus sintomas podem estar relacionados à dengue e receba orientações rápidas sobre os próximos passos a serem tomados."
-            onStart={handleStartAssessment}
-          />
-          
-          <Features />
+          {!showAssessment ? (
+            <>
+              <AssessmentCard
+                title="Avalie seus Sintomas"
+                description="Descubra se seus sintomas podem estar relacionados à dengue e receba orientações rápidas sobre os próximos passos a serem tomados."
+                onStart={handleStartAssessment}
+              />
+              <Features />
+            </>
+          ) : (
+            <AssessmentWizard />
+          )}
         </div>
       </main>
       
