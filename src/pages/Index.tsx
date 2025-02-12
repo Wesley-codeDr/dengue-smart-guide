@@ -22,8 +22,8 @@ const Index = () => {
     >
       <Header />
       
-      <main className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto space-y-12">
+      <main className="container mx-auto px-4 py-4 md:py-8">
+        <div className="max-w-4xl mx-auto space-y-8 md:space-y-12">
           {!showAssessment ? (
             <>
               <AssessmentCard
@@ -39,8 +39,8 @@ const Index = () => {
         </div>
       </main>
       
-      <footer className="bg-white py-8 mt-12">
-        <div className="container mx-auto px-4 text-center text-gray-600">
+      <footer className="bg-white py-6 md:py-8 mt-8 md:mt-12">
+        <div className="container mx-auto px-4 text-center text-gray-600 text-sm md:text-base">
           <p>© 2024 Dengue Smart Guide. Todos os direitos reservados.</p>
         </div>
       </footer>
