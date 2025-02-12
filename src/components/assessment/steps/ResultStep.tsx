@@ -33,6 +33,8 @@ const ResultStep = ({ onBack, formData }: AssessmentStepProps) => {
   const [showHospitals, setShowHospitals] = useState(false);
   const riskLevel = calculateRiskLevel(formData);
 
+  const TELEMEDICINE_URL = "https://www.doctoralia.com.br/";
+
   const recommendations = {
     BAIXO: {
       title: "Risco Baixo",
@@ -68,6 +70,9 @@ const ResultStep = ({ onBack, formData }: AssessmentStepProps) => {
   const handleActionClick = () => {
     if (riskLevel === "ALTO") {
       setShowHospitals(true);
+    } else {
+      // Para casos de risco baixo e médio, redireciona para a telemedicina
+      window.open(TELEMEDICINE_URL, '_blank');
     }
   };
 
