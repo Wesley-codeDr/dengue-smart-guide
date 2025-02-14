@@ -1,14 +1,17 @@
+
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Label } from "@/components/ui/label";
 import { format, differenceInYears } from "date-fns";
 import { ptBR } from "date-fns/locale";
+
 type BirthDateInputProps = {
   value?: Date;
   onChange: (date: Date | undefined) => void;
   error?: string;
 };
+
 export const BirthDateInput = ({
   value,
   onChange,
@@ -18,7 +21,9 @@ export const BirthDateInput = ({
     if (!birthDate) return null;
     return differenceInYears(new Date(), birthDate);
   };
+
   const age = calculateAge(value);
+
   return <div>
       <Label>Data de Nascimento</Label>
       <div className="flex items-center gap-4">
@@ -33,7 +38,18 @@ export const BirthDateInput = ({
             </Button>
           </PopoverTrigger>
           <PopoverContent className="w-auto p-0" align="start">
-            <Calendar mode="single" selected={value} onSelect={onChange} disabled={date => date > new Date() || date < new Date("1900-01-01")} initialFocus locale={ptBR} className="bg-slate-50" />
+            <Calendar 
+              mode="single" 
+              selected={value} 
+              onSelect={onChange} 
+              disabled={date => date > new Date() || date < new Date("1900-01-01")} 
+              initialFocus 
+              locale={ptBR} 
+              className="bg-[#F2FCE2]"
+              captionLayout="dropdown-buttons"
+              fromYear={1900}
+              toYear={new Date().getFullYear()} 
+            />
           </PopoverContent>
         </Popover>
         {age !== null && <span className="text-sm text-muted-foreground whitespace-nowrap">
