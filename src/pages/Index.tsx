@@ -1,9 +1,8 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Timer, ClipboardCheck, ArrowRight, Video } from "lucide-react";
+import { Timer, ClipboardCheck, ArrowRight, Video, Compass } from "lucide-react";
 import AssessmentWizard from "@/components/assessment/AssessmentWizard";
 
 const Index = () => {
@@ -17,7 +16,7 @@ const Index = () => {
     title: "Confiável",
     description: "Baseado nas diretrizes mais recentes de saúde"
   }, {
-    icon: ArrowRight,
+    icon: Compass,
     title: "Orientação Clara",
     description: "Receba recomendações personalizadas imediatamente"
   }];
