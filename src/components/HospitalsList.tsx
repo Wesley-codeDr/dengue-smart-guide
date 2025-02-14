@@ -51,13 +51,12 @@ const HospitalsList = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center p-8">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+      <div className="flex justify-center items-center p-6">
+        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
       </div>
     );
   }
 
-  // Agrupar hospitais por cidade
   const hospitalsByCity = hospitals.reduce((acc, hospital) => {
     if (!acc[hospital.city]) {
       acc[hospital.city] = [];
@@ -67,40 +66,39 @@ const HospitalsList = () => {
   }, {} as Record<string, Hospital[]>);
 
   return (
-    <Card className="p-6 bg-gradient-to-br from-white to-primary/5">
-      <h2 className="text-2xl font-semibold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary-dark to-primary-dark/80">
+    <Card className="p-4 bg-gradient-to-br from-white to-primary/5">
+      <h2 className="text-xl font-semibold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary-dark to-primary-dark/80">
         Hospitais Parceiros
       </h2>
       
-      <Accordion type="single" collapsible className="space-y-4">
+      <Accordion type="single" collapsible className="space-y-2">
         {Object.entries(hospitalsByCity).map(([city, cityHospitals]) => (
           <AccordionItem
             key={city}
             value={city}
-            className="border rounded-lg bg-white shadow-sm hover:shadow-md transition-all duration-300"
+            className="border rounded-md bg-white shadow-sm hover:shadow transition-all duration-300"
           >
-            <AccordionTrigger className="px-6 py-4 flex items-center justify-between w-full hover:bg-primary/5 transition-colors">
+            <AccordionTrigger className="px-4 py-3 flex items-center justify-between w-full hover:bg-primary/5 transition-colors">
               <div className="flex items-center gap-2">
-                <span className="text-lg font-medium text-primary-dark">{city}</span>
-                <span className="text-sm text-muted-foreground">
+                <span className="text-base font-medium text-primary-dark">{city}</span>
+                <span className="text-xs text-muted-foreground">
                   ({cityHospitals.length} {cityHospitals.length === 1 ? 'hospital' : 'hospitais'})
                 </span>
               </div>
-              <ChevronDown className="h-5 w-5 text-primary-dark transition-transform duration-200" />
             </AccordionTrigger>
             
             <AccordionContent>
-              <div className="px-6 py-3 space-y-2 bg-white">
+              <div className="px-4 py-2 space-y-1 bg-white">
                 {cityHospitals.map((hospital) => (
                   <div
                     key={hospital.id}
                     onClick={() => handleHospitalClick(hospital.url)}
-                    className="group flex items-center justify-between p-3 rounded-md hover:bg-primary/5 cursor-pointer transition-all duration-200"
+                    className="group flex items-center justify-between py-2 px-3 rounded hover:bg-primary/5 cursor-pointer transition-all duration-200"
                   >
-                    <span className="font-medium text-gray-700 group-hover:text-primary-dark">
+                    <span className="text-sm font-medium text-gray-700 group-hover:text-primary-dark">
                       {hospital.name}
                     </span>
-                    <ExternalLink className="h-4 w-4 text-gray-400 group-hover:text-primary-dark transition-colors" />
+                    <ExternalLink className="h-3.5 w-3.5 text-gray-400 group-hover:text-primary-dark transition-colors" />
                   </div>
                 ))}
               </div>
