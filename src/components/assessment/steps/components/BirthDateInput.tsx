@@ -45,10 +45,47 @@ export const BirthDateInput = ({
               disabled={date => date > new Date() || date < new Date("1900-01-01")} 
               initialFocus 
               locale={ptBR} 
-              className="bg-[#F2FCE2]"
+              className="rounded-lg border bg-white shadow-md p-4"
               captionLayout="dropdown-buttons"
               fromYear={1900}
-              toYear={new Date().getFullYear()} 
+              toYear={new Date().getFullYear()}
+              modifiersStyles={{
+                selected: {
+                  backgroundColor: "#00A5B8",
+                  color: "white",
+                  borderRadius: "0.375rem"
+                },
+                today: {
+                  color: "#00A5B8",
+                  fontWeight: "bold"
+                }
+              }}
+              styles={{
+                caption: { 
+                  color: "#1A202C",
+                  fontSize: "1rem",
+                  marginBottom: "1rem"
+                },
+                day: { 
+                  margin: "2px",
+                  width: "40px",
+                  height: "40px",
+                  fontSize: "0.875rem",
+                  borderRadius: "0.375rem"
+                },
+                nav_button: {
+                  color: "#4A5568",
+                  padding: "4px",
+                  margin: "0 4px"
+                },
+                head_cell: {
+                  color: "#4A5568",
+                  fontSize: "0.75rem",
+                  fontWeight: "600",
+                  textTransform: "uppercase",
+                  padding: "8px 0"
+                }
+              }}
             />
           </PopoverContent>
         </Popover>
