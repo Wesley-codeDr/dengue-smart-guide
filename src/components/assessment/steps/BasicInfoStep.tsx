@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowRight } from "lucide-react";
+import { Calendar } from "@/components/ui/calendar";
 import {
   Select,
   SelectContent,
@@ -12,12 +13,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { format, differenceInYears } from "date-fns";
+import { ptBR } from "date-fns/locale";
 import type { AssessmentStepProps } from "../AssessmentWizard";
 
 const BasicInfoStep = ({ onNext, setFormData, formData }: AssessmentStepProps) => {
   const [errors, setErrors] = useState({
     name: "",
-    age: "",
+    birthDate: "",
     city: "",
   });
 
@@ -44,10 +52,15 @@ const BasicInfoStep = ({ onNext, setFormData, formData }: AssessmentStepProps) =
     { id: "anticoagulant", label: "Uso de Anticoagulante" },
   ];
 
+  const calculateAge = (birthDate: Date | undefined) => {
+    if (!birthDate) return null;
+    return differenceInYears(new Date(), birthDate);
+  };
+
   const validateForm = () => {
     const newErrors = {
       name: "",
-      age: "",
+      birthDate: "",
       city: "",
     };
     let isValid = true;
@@ -57,8 +70,8 @@ const BasicInfoStep = ({ onNext, setFormData, formData }: AssessmentStepProps) =
       isValid = false;
     }
 
-    if (!formData.basicInfo.age || formData.basicInfo.age < 0) {
-      newErrors.age = "Idade válida é obrigatória";
+    if (!formData.basicInfo.birthDate) {
+      newErrors.birthDate = "Data de nascimento é obrigatória";
       isValid = false;
     }
 
@@ -105,6 +118,8 @@ const BasicInfoStep = ({ onNext, setFormData, formData }: AssessmentStepProps) =
     });
   };
 
+  const age = calculateAge(formData.basicInfo.birthDate);
+
   return (
     <div className="space-y-6 animate-fade-in">
       <div className="space-y-4">
@@ -127,29 +142,53 @@ const BasicInfoStep = ({ onNext, setFormData, formData }: AssessmentStepProps) =
         </div>
 
         <div>
-          <Label htmlFor="age">Idade</Label>
-          <div className="flex items-center space-x-2">
-            <Select
-              value={formData.basicInfo.age?.toString()}
-              onValueChange={(value) =>
-                setFormData({
-                  basicInfo: { ...formData.basicInfo, age: parseInt(value) },
-                })
-              }
-            >
-              <SelectTrigger className={errors.age ? "border-red-500" : ""}>
-                <SelectValue placeholder="Selecione sua idade" />
-              </SelectTrigger>
-              <SelectContent>
-                {Array.from({ length: 121 }, (_, i) => i).map((age) => (
-                  <SelectItem key={age} value={age.toString()}>
-                    {age} anos
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+          <Label>Data de Nascimento</Label>
+          <div className="flex items-center gap-4">
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="outline"
+                  className={`w-full justify-start text-left font-normal ${
+                    errors.birthDate ? "border-red-500" : ""
+                  }`}
+                >
+                  {formData.basicInfo.birthDate ? (
+                    format(formData.basicInfo.birthDate, "dd 'de' MMMM 'de' yyyy", {
+                      locale: ptBR,
+                    })
+                  ) : (
+                    <span className="text-muted-foreground">
+                      Selecione sua data de nascimento
+                    </span>
+                  )}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-0" align="start">
+                <Calendar
+                  mode="single"
+                  selected={formData.basicInfo.birthDate}
+                  onSelect={(date) =>
+                    setFormData({
+                      basicInfo: { ...formData.basicInfo, birthDate: date },
+                    })
+                  }
+                  disabled={(date) =>
+                    date > new Date() || date < new Date("1900-01-01")
+                  }
+                  initialFocus
+                  locale={ptBR}
+                />
+              </PopoverContent>
+            </Popover>
+            {age !== null && (
+              <span className="text-sm text-muted-foreground whitespace-nowrap">
+                {age} anos
+              </span>
+            )}
           </div>
-          {errors.age && <p className="text-sm text-red-500 mt-1">{errors.age}</p>}
+          {errors.birthDate && (
+            <p className="text-sm text-red-500 mt-1">{errors.birthDate}</p>
+          )}
         </div>
 
         <div>
