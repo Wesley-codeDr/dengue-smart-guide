@@ -103,23 +103,22 @@ const Index = () => {
                     <p className="text-gray-600 mb-6 leading-relaxed">
                       Durante o surto de dengue, proteja sua saúde sem sair de casa. A teleconsulta com a Dra. Tita oferece atendimento médico rápido, seguro e alinhado às diretrizes médicas mais recentes.
                     </p>
-                    <div className="flex items-center gap-6">
-                      <Button 
-                        onClick={handleTeleconsultaClick}
-                        size="lg" 
-                        className="bg-[#FF9B71] hover:bg-[#FF9B71]/90 text-white"
-                      >
-                        Conheça mais sobre a teleconsulta
-                        <ArrowRight className="ml-2 h-5 w-5" />
-                      </Button>
-                      <img 
-                        src="/lovable-uploads/39beb352-ed2f-437e-a68c-ad848fe06b6e.png" 
-                        alt="Teleconsulta Logo" 
-                        className="h-16 w-16 object-contain"
-                      />
-                    </div>
+                    <Button 
+                      onClick={handleTeleconsultaClick}
+                      size="lg" 
+                      className="bg-[#FF9B71] hover:bg-[#FF9B71]/90 text-white"
+                    >
+                      Conheça mais sobre a teleconsulta
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
                   </div>
-                  <div className="hidden md:block w-1/4 bg-gradient-to-br from-[#00A5B8]/20 to-[#FF9B71]/20 h-full min-h-[280px]" />
+                  <div className="hidden md:flex items-center justify-center w-1/4 p-8">
+                    <img 
+                      src="/lovable-uploads/39beb352-ed2f-437e-a68c-ad848fe06b6e.png" 
+                      alt="Teleconsulta Logo" 
+                      className="w-full max-w-[160px] object-contain"
+                    />
+                  </div>
                 </div>
               </Card>
             </div>
