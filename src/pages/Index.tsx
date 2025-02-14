@@ -1,11 +1,9 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Timer, ClipboardCheck, ArrowRight } from "lucide-react";
 import AssessmentWizard from "@/components/assessment/AssessmentWizard";
-
 const Index = () => {
   const [showAssessment, setShowAssessment] = useState(false);
   const features = [{
@@ -21,11 +19,9 @@ const Index = () => {
     title: "Orientação Clara",
     description: "Receba recomendações personalizadas imediatamente"
   }];
-
   const handleLogoClick = () => {
     setShowAssessment(false);
   };
-
   return <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
       <header className="border-b bg-white">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -51,9 +47,7 @@ const Index = () => {
       {!showAssessment ? <main>
           <section className="py-20 text-center">
             <div className="container mx-auto px-4">
-              <h1 className="text-4xl md:text-5xl font-bold text-[#00A5B8] mb-6">
-                Avaliação de Dengue Online
-              </h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-[#00A5B8] mb-6">Avalia Dengue</h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
                 Descubra rapidamente se seus sintomas podem estar relacionados à dengue
                 e receba orientações confiáveis para o próximo passo.
@@ -92,5 +86,4 @@ const Index = () => {
       </footer>
     </div>;
 };
-
 export default Index;
