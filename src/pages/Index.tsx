@@ -116,7 +116,7 @@ const Index = () => {
                     <img 
                       src="/lovable-uploads/39beb352-ed2f-437e-a68c-ad848fe06b6e.png" 
                       alt="Teleconsulta Logo" 
-                      className="w-full max-w-[160px] object-contain"
+                      className="w-full max-w-[200px] object-contain mix-blend-multiply filter contrast-125 brightness-105"
                     />
                   </div>
                 </div>
