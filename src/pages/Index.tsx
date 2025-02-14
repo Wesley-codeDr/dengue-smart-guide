@@ -1,9 +1,11 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Timer, ClipboardCheck, ArrowRight } from "lucide-react";
 import AssessmentWizard from "@/components/assessment/AssessmentWizard";
+
 const Index = () => {
   const [showAssessment, setShowAssessment] = useState(false);
   const features = [{
@@ -19,10 +21,15 @@ const Index = () => {
     title: "Orientação Clara",
     description: "Receba recomendações personalizadas imediatamente"
   }];
+
+  const handleLogoClick = () => {
+    setShowAssessment(false);
+  };
+
   return <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
       <header className="border-b bg-white">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 cursor-pointer" onClick={handleLogoClick}>
             <img src="/lovable-uploads/3f76aede-e69f-45fb-95fd-fb3e2a81b56d.png" alt="Dengue Smart Triage Logo" className="h-10 w-10" />
             <span className="text-xl font-semibold text-[#00A5B8] my-0">Hospital Santa Ignês Paulínia</span>
           </div>
@@ -85,4 +92,5 @@ const Index = () => {
       </footer>
     </div>;
 };
+
 export default Index;
