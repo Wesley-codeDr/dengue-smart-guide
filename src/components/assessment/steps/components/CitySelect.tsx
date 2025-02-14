@@ -33,9 +33,13 @@ export const CitySelect = ({ value, onChange, error }: CitySelectProps) => {
         <SelectTrigger className={error ? "border-red-500" : ""}>
           <SelectValue placeholder="Selecione sua cidade" />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="bg-white">
           {cities.map((city) => (
-            <SelectItem key={city} value={city}>
+            <SelectItem 
+              key={city} 
+              value={city}
+              className="hover:bg-gray-50"
+            >
               {city}
             </SelectItem>
           ))}
