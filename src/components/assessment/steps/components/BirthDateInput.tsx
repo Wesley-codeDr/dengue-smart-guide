@@ -1,10 +1,7 @@
 
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { format, differenceInYears } from "date-fns";
-import { ptBR } from "date-fns/locale";
+import { differenceInYears } from "date-fns";
 
 type BirthDateInputProps = {
   value?: Date;
@@ -24,39 +21,31 @@ export const BirthDateInput = ({
 
   const age = calculateAge(value);
 
-  return <div>
-      <Label>Data de Nascimento</Label>
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newDate = e.target.value ? new Date(e.target.value) : undefined;
+    onChange(newDate);
+  };
+
+  return (
+    <div className="space-y-2">
+      <Label htmlFor="birthDate">Data de Nascimento</Label>
       <div className="flex items-center gap-4">
-        <Popover>
-          <PopoverTrigger asChild>
-            <Button variant="outline" className={`w-full justify-start text-left font-normal ${error ? "border-red-500" : ""}`}>
-              {value ? format(value, "dd 'de' MMMM 'de' yyyy", {
-              locale: ptBR
-            }) : <span className="text-muted-foreground">
-                  Selecione sua data de nascimento
-                </span>}
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent className="w-auto p-0" align="start">
-            <div className="rounded-lg border border-border">
-              <Calendar 
-                mode="single" 
-                selected={value} 
-                onSelect={onChange} 
-                disabled={date => date > new Date() || date < new Date("1900-01-01")} 
-                initialFocus 
-                locale={ptBR}
-                className="p-2 bg-background"
-                fromYear={1900}
-                toYear={new Date().getFullYear()}
-              />
-            </div>
-          </PopoverContent>
-        </Popover>
-        {age !== null && <span className="text-sm text-muted-foreground whitespace-nowrap">
+        <Input
+          id="birthDate"
+          type="date"
+          value={value ? value.toISOString().split('T')[0] : ''}
+          onChange={handleDateChange}
+          className={`w-full ${error ? "border-red-500" : ""}`}
+          min="1900-01-01"
+          max={new Date().toISOString().split('T')[0]}
+        />
+        {age !== null && (
+          <span className="text-sm text-muted-foreground whitespace-nowrap">
             {age} anos
-          </span>}
+          </span>
+        )}
       </div>
-      {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
-    </div>;
+      {error && <p className="text-sm text-red-500">{error}</p>}
+    </div>
+  );
 };
