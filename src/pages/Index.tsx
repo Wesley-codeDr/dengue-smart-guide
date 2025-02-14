@@ -1,9 +1,11 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Shield, Timer, ArrowRight } from "lucide-react";
+import { Timer, ClipboardCheck, ArrowRight } from "lucide-react";
 import AssessmentWizard from "@/components/assessment/AssessmentWizard";
+
 const Index = () => {
   const [showAssessment, setShowAssessment] = useState(false);
   const features = [{
@@ -11,7 +13,7 @@ const Index = () => {
     title: "Rápido e Fácil",
     description: "Complete a avaliação em menos de 5 minutos"
   }, {
-    icon: Shield,
+    icon: ClipboardCheck,
     title: "Confiável",
     description: "Baseado nas diretrizes mais recentes de saúde"
   }, {
@@ -19,22 +21,27 @@ const Index = () => {
     title: "Orientação Clara",
     description: "Receba recomendações personalizadas imediatamente"
   }];
+
   return <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
       <header className="border-b bg-white">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <Shield className="h-6 w-6 text-green-600" />
-            <span className="text-xl font-semibold text-green-600">WellWave</span>
+          <div className="flex items-center gap-3">
+            <img 
+              src="/lovable-uploads/3f76aede-e69f-45fb-95fd-fb3e2a81b56d.png" 
+              alt="Dengue Smart Triage Logo" 
+              className="h-10 w-10"
+            />
+            <span className="text-xl font-semibold text-[#00A5B8]">Smart Triage</span>
           </div>
           <nav>
             <ul className="flex gap-6">
               <li>
-                <a href="#sobre" className="text-gray-600 hover:text-gray-900">
+                <a href="#sobre" className="text-gray-600 hover:text-[#00A5B8]">
                   Sobre
                 </a>
               </li>
               <li>
-                <a href="#contato" className="text-gray-600 hover:text-gray-900">
+                <a href="#contato" className="text-gray-600 hover:text-[#00A5B8]">
                   Contato
                 </a>
               </li>
@@ -46,7 +53,7 @@ const Index = () => {
       {!showAssessment ? <main>
           <section className="py-20 text-center">
             <div className="container mx-auto px-4">
-              <h1 className="text-4xl md:text-5xl font-bold text-green-700 mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-[#00A5B8] mb-6">
                 Avaliação de Dengue Online
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
@@ -54,11 +61,19 @@ const Index = () => {
                 e receba orientações confiáveis para o próximo passo.
               </p>
               <div className="flex justify-center gap-4">
-                <Button onClick={() => setShowAssessment(true)} size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8">
+                <Button 
+                  onClick={() => setShowAssessment(true)} 
+                  size="lg" 
+                  className="bg-[#00A5B8] hover:bg-[#008999] text-white px-8"
+                >
                   Iniciar Avaliação
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button variant="outline" size="lg" className="border-green-600 text-green-600 hover:bg-green-50">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-[#FF9B71] text-[#FF9B71] hover:bg-[#FF9B71]/10"
+                >
                   Saiba Mais
                 </Button>
               </div>
@@ -68,8 +83,8 @@ const Index = () => {
           <section className="py-16 bg-white">
             <div className="container mx-auto px-4">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {features.map(feature => <Card key={feature.title} className="p-6 text-center hover:shadow-lg transition-shadow">
-                    <feature.icon className="h-12 w-12 text-green-600 mx-auto mb-4" />
+                {features.map(feature => <Card key={feature.title} className="p-6 text-center hover:shadow-lg transition-shadow border-t-4 border-t-[#00A5B8]">
+                    <feature.icon className="h-12 w-12 text-[#00A5B8] mx-auto mb-4" />
                     <h3 className="text-xl font-semibold text-gray-800 mb-2">
                       {feature.title}
                     </h3>
@@ -90,4 +105,5 @@ const Index = () => {
       </footer>
     </div>;
 };
+
 export default Index;
