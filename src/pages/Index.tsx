@@ -1,11 +1,9 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Timer, ClipboardCheck, ArrowRight } from "lucide-react";
 import AssessmentWizard from "@/components/assessment/AssessmentWizard";
-
 const Index = () => {
   const [showAssessment, setShowAssessment] = useState(false);
   const features = [{
@@ -21,24 +19,17 @@ const Index = () => {
     title: "Orientação Clara",
     description: "Receba recomendações personalizadas imediatamente"
   }];
-
   return <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
       <header className="border-b bg-white">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <img 
-              src="/lovable-uploads/3f76aede-e69f-45fb-95fd-fb3e2a81b56d.png" 
-              alt="Dengue Smart Triage Logo" 
-              className="h-10 w-10"
-            />
-            <span className="text-xl font-semibold text-[#00A5B8]">Smart Triage</span>
+            <img src="/lovable-uploads/3f76aede-e69f-45fb-95fd-fb3e2a81b56d.png" alt="Dengue Smart Triage Logo" className="h-10 w-10" />
+            <span className="text-xl font-semibold text-[#00A5B8] my-0">Hospital Santa Ignês Paulínia</span>
           </div>
           <nav>
             <ul className="flex gap-6">
               <li>
-                <a href="#sobre" className="text-gray-600 hover:text-[#00A5B8]">
-                  Sobre
-                </a>
+                
               </li>
               <li>
                 <a href="#contato" className="text-gray-600 hover:text-[#00A5B8]">
@@ -61,19 +52,11 @@ const Index = () => {
                 e receba orientações confiáveis para o próximo passo.
               </p>
               <div className="flex justify-center gap-4">
-                <Button 
-                  onClick={() => setShowAssessment(true)} 
-                  size="lg" 
-                  className="bg-[#00A5B8] hover:bg-[#008999] text-white px-8"
-                >
+                <Button onClick={() => setShowAssessment(true)} size="lg" className="bg-[#00A5B8] hover:bg-[#008999] text-white px-8">
                   Iniciar Avaliação
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="border-[#FF9B71] text-[#FF9B71] hover:bg-[#FF9B71]/10"
-                >
+                <Button variant="outline" size="lg" className="border-[#FF9B71] text-[#FF9B71] hover:bg-[#FF9B71]/10">
                   Saiba Mais
                 </Button>
               </div>
@@ -97,13 +80,9 @@ const Index = () => {
 
       <footer className="bg-white py-8 border-t">
         <div className="container mx-auto px-4 text-center text-gray-600">
-          <p>
-            © 2025 Dengue Smart Triage - Hospital Santa Ignês | Todos os direitos
-            reservados
-          </p>
+          <p>© 2025 WellWave Dengue | Todos os direitos reservados</p>
         </div>
       </footer>
     </div>;
 };
-
 export default Index;
