@@ -79,18 +79,18 @@ const HospitalsList = () => {
             value={city}
             className="border rounded-lg bg-white shadow-sm hover:shadow-md transition-all duration-300"
           >
-            <AccordionTrigger className="px-4 py-3 flex items-center justify-between w-full">
+            <AccordionTrigger className="px-6 py-4 flex items-center justify-between w-full hover:bg-primary/5 transition-colors">
               <div className="flex items-center gap-2">
-                <span className="text-lg font-medium text-gray-800">{city}</span>
-                <span className="text-sm text-gray-500">
+                <span className="text-lg font-medium text-primary-dark">{city}</span>
+                <span className="text-sm text-muted-foreground">
                   ({cityHospitals.length} {cityHospitals.length === 1 ? 'hospital' : 'hospitais'})
                 </span>
               </div>
-              <ChevronDown className="h-5 w-5 text-gray-500 transition-transform duration-200" />
+              <ChevronDown className="h-5 w-5 text-primary-dark transition-transform duration-200" />
             </AccordionTrigger>
             
             <AccordionContent>
-              <div className="px-4 py-2 space-y-2">
+              <div className="px-6 py-3 space-y-2 bg-white">
                 {cityHospitals.map((hospital) => (
                   <div
                     key={hospital.id}
