@@ -125,11 +125,7 @@ const ResultStep = ({ onBack, formData }: AssessmentStepProps) => {
         </h3>
         <p className="text-gray-700 mb-4">{currentRecommendation.message}</p>
         <Button
-          className={`w-full ${
-            riskLevel === "ALTO"
-              ? "bg-red-600 hover:bg-red-700"
-              : "bg-primary-dark hover:bg-primary-dark/90"
-          }`}
+          className={`w-full ${riskLevel === "ALTO" ? "bg-red-600 hover:bg-red-700" : "gradient-bg hover:opacity-90"}`}
           onClick={handleActionClick}
         >
           {currentRecommendation.action}

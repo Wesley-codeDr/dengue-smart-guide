@@ -25,15 +25,26 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        // Apple-inspired color palette
         primary: {
-          DEFAULT: "#00A5B8",
-          light: "#E6F7F9",
-          dark: "#008999",
+          DEFAULT: "#0071e3", // Apple blue
+          light: "#e8f4fc",
+          dark: "#0060bf",
           foreground: "#FFFFFF",
         },
         secondary: {
-          DEFAULT: "#FF9B71",
-          light: "#FFE4D9",
+          DEFAULT: "#f5f5f7", // Apple light gray
+          light: "#ffffff",
+          dark: "#d2d2d7",
+        },
+        accent: {
+          DEFAULT: "#34c759", // Apple green
+          light: "#e8f7ed",
+          dark: "#2eb04d",
+        },
+        destructive: {
+          DEFAULT: "#ef4444",
+          light: "#EDE9F8",
           foreground: "#FFFFFF",
         },
         destructive: {
