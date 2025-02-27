@@ -1,0 +1,100 @@
+/* Botão de teleconsulta - nova cor */
+.btn-teleconsulta, 
+a[href*="teleconsulta"], 
+[class*="teleconsulta"],
+[class*="agendar-teleconsulta"] {
+  background-color: #4CAF50 !important; /* Verde */
+  color: white !important;
+  transition: background-color 0.3s ease;
+  padding: 10px 20px !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  border-radius: 4px !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.btn-teleconsulta:hover, 
+a[href*="teleconsulta"]:hover, 
+[class*="teleconsulta"]:hover,
+[class*="agendar-teleconsulta"]:hover {
+  background-color: #45a049 !important; /* Verde mais escuro no hover */
+  text-decoration: none !important;
+}
+
+/* Remove qualquer background vermelho/rosa existente */
+[class*="teleconsulta"],
+[class*="agendar-teleconsulta"] {
+  background: #4CAF50 !important;
+  background-color: #4CAF50 !important;
+}
+
+/* Remova ou comente esses estilos se não forem usados em outro lugar */
+.modern-button-accent {
+  /* ... estilos existentes ... */
+}
+
+/* Estilo atualizado para o footer - com paleta de azul */
+.modern-footer {
+  background-color: #1a365d !important; /* Azul escuro */
+  color: #e2e8f0 !important; /* Texto claro */
+  padding: 4rem 0 2rem !important;
+  border-top: 1px solid #2d3748 !important;
+}
+
+/* Texto no footer */
+.modern-footer p, 
+.modern-footer div:not(.bg-primary):not(.bg-primary/10) {
+  color: #e2e8f0 !important;
+}
+
+/* Garantir que os textos do footer sejam da cor correta */
+.modern-footer .text-gray-400,
+.modern-footer .text-gray-500 {
+  color: #cbd5e0 !important;
+}
+
+.modern-footer-title {
+  color: #ffffff !important; /* Título em branco */
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.modern-footer-link {
+  color: #cbd5e0 !important; /* Links em cinza claro */
+  transition: all 0.3s ease;
+}
+
+.modern-footer-link:hover {
+  color: #4CAF50 !important; /* Verde ao passar o mouse (mantendo a cor do botão) */
+}
+
+/* Ícones de redes sociais */
+.modern-footer .flex.space-x-4 a {
+  background-color: #2d3748 !important; /* Fundo azul mais claro */
+  color: #cbd5e0 !important; /* Ícone em cinza claro */
+}
+
+.modern-footer .flex.space-x-4 a:hover {
+  background-color: #4CAF50 !important; /* Verde ao passar o mouse */
+  color: white !important;
+}
+
+/* Ícones de horário */
+.modern-footer .rounded-full.bg-gray-800 {
+  background-color: #2d3748 !important; /* Fundo azul mais claro */
+}
+
+/* Borda do rodapé */
+.modern-footer .border-gray-800 {
+  border-color: #2d3748 !important; /* Borda azul mais escura */
+}
+
+/* Remove any logo-specific styles like:
+.logo {
+  width: 200px;
+  height: 200px;
+}
+*/ 

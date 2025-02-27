@@ -48,13 +48,19 @@ const Features = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="modern-card modern-3d-card group"
-            >
+              className="modern-card group hover:scale-[1.02] transition-all duration-300"
+              style={{
+                background: "rgba(255, 255, 255, 0.8)",
+                backdropFilter: "blur(12px)",
+                border: "1px solid rgba(255, 255, 255, 0.3)",
+                boxShadow: "var(--shadow-md)"
+              }}
+        >
               <div className={`h-2 bg-gradient-to-r ${feature.color} rounded-t-lg`}></div>
               <div className="p-8 flex flex-col h-full">
                 <div className="mb-8 p-5 bg-gradient-to-br from-primary/10 to-secondary/5 rounded-full w-20 h-20 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
                   <feature.icon className="h-10 w-10 text-primary" />
-                </div>
+          </div>
                 
                 <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 text-center">
                   {feature.title}
@@ -69,7 +75,7 @@ const Features = () => {
                     Saiba mais <ArrowRight className="ml-2 h-4 w-4 transition-all duration-300 group-hover:ml-3" />
                   </button>
                 </div>
-              </div>
+      </div>
             </motion.div>
           ))}
         </div>

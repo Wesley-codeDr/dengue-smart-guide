@@ -55,12 +55,14 @@ body {
 
 /* Apple-style frosted glass effect */
 .apple-glass {
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   background-color: var(--apple-glass);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .apple-glass-dark {
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   background-color: var(--apple-glass-dark);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -101,6 +103,7 @@ h3 {
 /* Apple-style navigation */
 .apple-nav {
   background-color: var(--apple-glass);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(210, 210, 215, 0.3);
   height: 48px;
