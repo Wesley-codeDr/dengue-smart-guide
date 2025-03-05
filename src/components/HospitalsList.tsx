@@ -2,14 +2,13 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ChevronDown } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { toast } from "@/components/ui/use-toast";
 
 type Hospital = {
   id: string;
@@ -32,22 +31,12 @@ const HospitalsList = () => {
         
         if (error) {
           console.error('Error fetching hospitals:', error);
-          toast({
-            title: "Erro ao carregar hospitais",
-            description: "Não foi possível carregar a lista de hospitais.",
-            variant: "destructive",
-          });
           return;
         }
 
         setHospitals(data);
       } catch (error) {
         console.error('Error:', error);
-        toast({
-          title: "Erro inesperado",
-          description: "Ocorreu um erro ao processar sua solicitação.",
-          variant: "destructive",
-        });
       } finally {
         setLoading(false);
       }
