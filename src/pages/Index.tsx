@@ -5,11 +5,13 @@ import Features from "@/components/Features";
 import AssessmentCard from "@/components/AssessmentCard";
 import HospitalsList from "@/components/HospitalsList";
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeSection, setActiveSection] = useState(0);
   const sections = ["hero", "features", "assessment", "hospitals"];
+  const navigate = useNavigate();
 
   // Atualiza o indicador ativo com base na posição do scroll
   const handleScroll = () => {
@@ -31,6 +33,13 @@ const Index = () => {
       left: width * index,
       behavior: 'smooth'
     });
+  };
+
+  // Handler para iniciar avaliação
+  const handleStartAssessment = () => {
+    // Aqui você pode navegar para a rota de avaliação
+    console.log("Iniciando avaliação...");
+    // Por exemplo: navigate("/assessment");
   };
 
   useEffect(() => {
@@ -66,7 +75,11 @@ const Index = () => {
         
         {/* Seção Assessment */}
         <section id="assessment" className="horizontal-section">
-          <AssessmentCard />
+          <AssessmentCard 
+            title="Avaliação de Saúde"
+            description="Faça uma avaliação rápida dos seus sintomas e descubra recomendações personalizadas para o seu caso."
+            onStart={handleStartAssessment}
+          />
         </section>
         
         {/* Seção Hospitals */}
