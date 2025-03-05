@@ -40,7 +40,7 @@
 /* Element styles */
 .modern-button {
   @apply bg-primary text-white rounded-lg px-6 py-3 font-medium transition-all duration-300
-         hover:bg-primary/90 hover:shadow-lg hover:scale-[1.01]
+         hover:bg-primary/90 hover:shadow-lg hover:scale-[1.02]
          active:translate-y-0.5 active:shadow-none
          disabled:opacity-60 disabled:pointer-events-none
          shadow-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2;
@@ -48,7 +48,7 @@
 
 .modern-button-secondary {
   @apply bg-white text-gray-700 border border-gray-200 rounded-lg px-6 py-3 font-medium transition-all duration-300
-         hover:bg-gray-50 hover:shadow-lg hover:scale-[1.01]
+         hover:bg-gray-50 hover:shadow-lg hover:scale-[1.02]
          active:translate-y-0.5 active:shadow-none
          disabled:opacity-60 disabled:pointer-events-none
          shadow-md focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-offset-2;
@@ -56,7 +56,7 @@
 
 .modern-button-accent {
   @apply bg-accent text-white rounded-lg px-6 py-3 font-medium transition-all duration-300
-         hover:bg-accent/90 hover:shadow-lg hover:scale-[1.01]
+         hover:bg-accent/90 hover:shadow-lg hover:scale-[1.02]
          active:translate-y-0.5 active:shadow-none
          disabled:opacity-60 disabled:pointer-events-none
          shadow-md focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2;
@@ -115,4 +115,26 @@
   .modern-blob {
     @apply w-[300px] h-[300px];
   }
+}
+
+/* Enhanced card styles */
+.professional-card {
+  @apply rounded-xl bg-white shadow-lg border border-gray-100 p-6 transition-all duration-300;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+}
+
+.professional-card:hover {
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.08), 0 10px 15px -3px rgba(0, 0, 0, 0.04);
+  transform: translateY(-5px);
+  border-color: rgba(0, 165, 184, 0.3);
+}
+
+/* Modern badge style */
+.modern-badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary;
+  transition: all 0.3s ease;
+}
+
+.modern-badge:hover {
+  @apply bg-primary/20;
 }

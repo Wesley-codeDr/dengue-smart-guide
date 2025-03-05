@@ -70,6 +70,7 @@
 
 .card-hover:hover {
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   border-color: #6B46C1;
 }
 
@@ -91,15 +92,15 @@
 /* Modern header styles */
 .modern-header-container {
   @apply py-3 flex justify-between items-center px-4 md:px-6 lg:px-8 rounded-b-lg;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0, 165, 184, 0.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(0, 165, 184, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 }
 
 .nav-link {
-  @apply text-gray-600 font-medium relative overflow-hidden;
+  @apply text-gray-700 font-medium relative overflow-hidden;
   transition: color 0.3s ease;
 }
 
@@ -111,8 +112,9 @@
   width: 100%;
   height: 2px;
   background: linear-gradient(90deg, #00A5B8, #6B46C1);
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .nav-link:hover {
@@ -120,7 +122,8 @@
 }
 
 .nav-link:hover::after {
-  transform: translateX(0);
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .logo-container {
@@ -130,11 +133,12 @@
 
 .logo-container:hover {
   transform: scale(1.05);
+  filter: drop-shadow(0 4px 6px rgba(0, 165, 184, 0.2));
 }
 
 .menu-button {
   @apply text-gray-600 p-2 rounded-full;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
