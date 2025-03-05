@@ -1,3 +1,11 @@
+
+/* Reset de alguns estilos para garantir consistência */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Botão de teleconsulta - nova cor */
 .btn-teleconsulta, 
 a[href*="teleconsulta"], 
@@ -11,7 +19,7 @@ a[href*="teleconsulta"],
   display: inline-block !important;
   border-radius: 4px !important;
   font-weight: 500 !important;
-  box-shadow: none !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
   border: none !important;
 }
 
@@ -21,6 +29,8 @@ a[href*="teleconsulta"]:hover,
 [class*="agendar-teleconsulta"]:hover {
   background-color: #45a049 !important; /* Verde mais escuro no hover */
   text-decoration: none !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15) !important;
 }
 
 /* Remove qualquer background vermelho/rosa existente */
@@ -28,11 +38,6 @@ a[href*="teleconsulta"]:hover,
 [class*="agendar-teleconsulta"] {
   background: #4CAF50 !important;
   background-color: #4CAF50 !important;
-}
-
-/* Remova ou comente esses estilos se não forem usados em outro lugar */
-.modern-button-accent {
-  /* ... estilos existentes ... */
 }
 
 /* Estilo atualizado para o footer - com paleta de azul */
@@ -92,9 +97,24 @@ a[href*="teleconsulta"]:hover,
   border-color: #2d3748 !important; /* Borda azul mais escura */
 }
 
-/* Remove any logo-specific styles like:
-.logo {
-  width: 200px;
-  height: 200px;
+/* Estilos para tornar o site mais profissional */
+.shadow-professional {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
 }
-*/ 
+
+.text-gradient-professional {
+  background: linear-gradient(90deg, #0071e3 0%, #0093e9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Estilo específico para o logo */
+.logo-container img {
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.07));
+  transition: all 0.3s ease;
+}
+
+.logo-container:hover img {
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.1));
+  transform: translateY(-2px);
+}

@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -5,7 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Timer, ClipboardCheck, ArrowRight, Video, Compass, Mail, Phone, MapPin } from "lucide-react";
 import AssessmentWizard from "@/components/assessment/AssessmentWizard";
 
-const logo = "/wellwave-logo.png";
+const logo = "/lovable-uploads/d3aeafc9-4401-4dc6-808f-08b9288b0356.png";
 
 const Index = () => {
   const [showAssessment, setShowAssessment] = useState<boolean>(false);
@@ -40,7 +41,7 @@ const Index = () => {
   };
 
   return <div className="min-h-screen bg-gradient-to-br from-primary/5 via-white to-secondary/5">
-      <header className="modern-header sticky top-0 z-50">
+      <header className="modern-header sticky top-0 z-50 backdrop-blur-md bg-white/90">
         <div className="modern-container py-4 flex justify-between items-center">
           <motion.div
             initial={{ opacity: 0 }}
@@ -52,7 +53,7 @@ const Index = () => {
             <img 
               src={logo} 
               alt="Wellwave Logo" 
-              className="h-12 w-auto rounded-full"
+              className="h-14 w-auto object-contain"
             />
           </motion.div>
           
@@ -202,7 +203,7 @@ const Index = () => {
 
           <section className="modern-section bg-gradient-to-br from-gray-50 to-gray-100">
             <div className="modern-container">
-              <Card className="max-w-4xl mx-auto overflow-hidden">
+              <Card className="max-w-4xl mx-auto overflow-hidden shadow-xl border-0">
                 <div className="flex flex-col md:flex-row items-center">
                   <div className="p-8 md:p-12 flex-1 space-y-6">
                     <motion.div
@@ -251,14 +252,22 @@ const Index = () => {
                       </motion.p>
                       
                       <motion.button
-                        className="self-start px-6 py-3 bg-primary text-white rounded-lg font-medium flex items-center gap-2 hover:bg-primary/90 transition-all duration-300"
+                        className="self-start px-6 py-3 bg-primary text-white rounded-lg font-medium flex items-center gap-2 hover:bg-primary/90 transition-all duration-300 shadow-md"
                         whileHover={{ scale: 1.02, x: 5 }}
                         whileTap={{ scale: 0.98 }}
+                        onClick={handleTeleconsultaClick}
                       >
                         Agendar agora
                         <ArrowRight className="h-4 w-4" />
                       </motion.button>
                     </motion.div>
+                  </div>
+                  <div className="md:w-2/5 p-8 flex justify-center items-center">
+                    <img 
+                      src={logo} 
+                      alt="Teleconsulta logo" 
+                      className="w-full max-w-[200px] h-auto object-contain filter brightness-105 contrast-125 mix-blend-multiply" 
+                    />
                   </div>
                 </div>
               </Card>
@@ -394,6 +403,44 @@ const Index = () => {
                     </motion.button>
                   </form>
                 </motion.div>
+                
+                <motion.div
+                  className="md:col-span-2 space-y-6"
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="bg-white rounded-lg shadow-md p-6 flex items-start space-x-4">
+                    <div className="rounded-full bg-primary/10 p-3 text-primary">
+                      <Mail className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-gray-900 mb-1">Email</h3>
+                      <p className="text-gray-600">contato@wellwave.com.br</p>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white rounded-lg shadow-md p-6 flex items-start space-x-4">
+                    <div className="rounded-full bg-primary/10 p-3 text-primary">
+                      <Phone className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-gray-900 mb-1">Telefone</h3>
+                      <p className="text-gray-600">(11) 4002-8922</p>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white rounded-lg shadow-md p-6 flex items-start space-x-4">
+                    <div className="rounded-full bg-primary/10 p-3 text-primary">
+                      <MapPin className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-gray-900 mb-1">Endereço</h3>
+                      <p className="text-gray-600">Av. Paulista, 1000 - São Paulo, SP</p>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
             </div>
           </section>
@@ -409,8 +456,13 @@ const Index = () => {
               transition={{ duration: 0.5 }}
             >
               <div className="flex items-center gap-3 mb-6">
+                <img 
+                  src={logo} 
+                  alt="Wellwave Logo" 
+                  className="h-12 w-auto" 
+                />
                 <div>
-                  <div className="text-xl font-semibold modern-gradient-text">Wellwave</div>
+                  <div className="text-xl font-semibold text-white">Wellwave</div>
                   <div className="text-xs text-gray-400">Saúde Digital</div>
                 </div>
               </div>
