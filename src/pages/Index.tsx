@@ -3,13 +3,14 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Timer, ClipboardCheck, ArrowRight, Video, Compass, Mail, Phone, MapPin } from "lucide-react";
+import { Timer, ClipboardCheck, ArrowRight, Video, Compass, Mail, Phone, MapPin, Menu } from "lucide-react";
 import AssessmentWizard from "@/components/assessment/AssessmentWizard";
 
 const logo = "/lovable-uploads/d3aeafc9-4401-4dc6-808f-08b9288b0356.png";
 
 const Index = () => {
   const [showAssessment, setShowAssessment] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const features = [{
     icon: Timer,
     title: "Rápido e Fácil",
@@ -30,6 +31,7 @@ const Index = () => {
   };
   
   const scrollToSection = (id: string): void => {
+    setIsMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -42,18 +44,19 @@ const Index = () => {
 
   return <div className="min-h-screen bg-gradient-to-br from-primary/5 via-white to-secondary/5">
       <header className="modern-header sticky top-0 z-50 backdrop-blur-md bg-white/90">
-        <div className="modern-container py-4 flex justify-between items-center">
+        <div className="modern-container modern-header-container">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex items-center gap-3 cursor-pointer"
+            className="logo-container"
             onClick={handleLogoClick}
           >
-            <img 
+            <motion.img 
               src={logo} 
               alt="Wellwave Logo" 
               className="h-14 w-auto object-contain"
+              whileHover={{ rotate: [0, -5, 5, -5, 0], transition: { duration: 0.5 } }}
             />
           </motion.div>
           
@@ -72,10 +75,9 @@ const Index = () => {
                   <a
                     href={item.href}
                     onClick={(e) => { e.preventDefault(); item.action(); }}
-                    className="text-gray-600 hover:text-primary font-medium py-2 transition-all duration-300 relative group"
+                    className="nav-link py-2 px-1"
                   >
                     {item.name}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
                   </a>
                 </motion.li>
               ))}
@@ -83,18 +85,40 @@ const Index = () => {
           </nav>
 
           <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="sm"
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="menu-button"
               aria-label="Abrir menu"
-              className="text-gray-600 hover:text-primary hover:bg-primary/5 transition-all duration-300"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="4" y1="12" x2="20" y2="12"></line>
-                <line x1="4" y1="6" x2="20" y2="6"></line>
-                <line x1="4" y1="18" x2="20" y2="18"></line>
-              </svg>
-            </Button>
+              <Menu className="h-6 w-6" />
+            </motion.button>
+            
+            {isMenuOpen && (
+              <motion.div 
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="absolute top-full right-4 mt-2 w-48 rounded-lg shadow-lg bg-white/95 backdrop-blur-md border border-gray-100 py-2 z-50"
+              >
+                {[
+                  { name: "Início", href: "#", action: handleLogoClick },
+                  { name: "Sobre", href: "#sobre", action: () => scrollToSection('sobre') },
+                  { name: "Contato", href: "#contato", action: () => scrollToSection('contato') }
+                ].map((item) => (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => { e.preventDefault(); item.action(); }}
+                    className="block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                    whileHover={{ x: 5 }}
+                  >
+                    {item.name}
+                  </motion.a>
+                ))}
+              </motion.div>
+            )}
           </div>
         </div>
       </header>
