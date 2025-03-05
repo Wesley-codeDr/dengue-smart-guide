@@ -20,6 +20,21 @@
     --brand-primary: 187 100% 36%;
     --brand-secondary: 271 47% 52%;
     --brand-accent: 187 100% 36%;
+
+    /* New modern UI colors */
+    --color-primary: #1E88E5;
+    --color-primary-light: #29B6F6;
+    --color-secondary: #0D47A1;
+    --color-secondary-dark: #1565C0;
+    --color-accent: #B2EBF2;
+    --color-text-primary: #0A2540;
+    --color-text-secondary: #475569;
+    --color-bg-dark: #FFFFFF;
+    --color-bg-light: #F8FAFC;
+    --color-glass: rgba(255, 255, 255, 0.7);
+    --color-border: rgba(30, 136, 229, 0.15);
+    --glass-blur: blur(10px);
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
     
     /* Functional colors */
     --success: 142 70% 49%;
@@ -57,8 +72,122 @@
   .text-balance {
     text-wrap: balance;
   }
+  
+  .bg-size-300 {
+    background-size: 300% 100%;
+  }
 }
 
+/* Animated shapes keyframes */
+@keyframes appear-float-1 {
+  0% { opacity: 0; transform: translateY(-150px) rotate(-3deg); }
+  10% { opacity: 1; transform: translateY(0) rotate(12deg); }
+  100% { opacity: 1; transform: translateY(0) rotate(12deg); }
+}
+
+@keyframes appear-float-2 {
+  0% { opacity: 0; transform: translateY(-150px) rotate(-30deg); }
+  10% { opacity: 1; transform: translateY(0) rotate(-15deg); }
+  100% { opacity: 1; transform: translateY(0) rotate(-15deg); }
+}
+
+@keyframes appear-float-3 {
+  0% { opacity: 0; transform: translateY(-150px) rotate(-23deg); }
+  10% { opacity: 1; transform: translateY(0) rotate(-8deg); }
+  100% { opacity: 1; transform: translateY(0) rotate(-8deg); }
+}
+
+@keyframes appear-float-4 {
+  0% { opacity: 0; transform: translateY(-150px) rotate(5deg); }
+  10% { opacity: 1; transform: translateY(0) rotate(20deg); }
+  100% { opacity: 1; transform: translateY(0) rotate(20deg); }
+}
+
+@keyframes appear-float-5 {
+  0% { opacity: 0; transform: translateY(-150px) rotate(-40deg); }
+  10% { opacity: 1; transform: translateY(0) rotate(-25deg); }
+  100% { opacity: 1; transform: translateY(0) rotate(-25deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(var(--rotate-angle, 0deg)); }
+  50% { transform: translateY(15px) rotate(var(--rotate-angle, 0deg)); }
+}
+
+@keyframes waveSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes waveSpinReverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Gradient and animation classes */
+.animate-waveSpin {
+  animation: waveSpin 25s infinite linear;
+}
+
+.animate-waveSpinReverse {
+  animation: waveSpin 20s infinite linear reverse;
+}
+
+.animate-gradient-shift {
+  animation: gradient-shift 8s ease infinite;
+}
+
+.animate-appear-float-1 {
+  animation: appear-float-1 0.8s forwards;
+  animation-delay: 0.3s;
+}
+
+.animate-appear-float-2 {
+  animation: appear-float-2 0.8s forwards;
+  animation-delay: 0.5s;
+}
+
+.animate-appear-float-3 {
+  animation: appear-float-3 0.8s forwards;
+  animation-delay: 0.4s;
+}
+
+.animate-appear-float-4 {
+  animation: appear-float-4 0.8s forwards;
+  animation-delay: 0.6s;
+}
+
+.animate-appear-float-5 {
+  animation: appear-float-5 0.8s forwards;
+  animation-delay: 0.7s;
+}
+
+.animate-fadeUp {
+  animation: fadeUp 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Additional styles */
 .gradient-bg {
   background: linear-gradient(135deg, #00A5B8 0%, #6B46C1 100%);
 }
