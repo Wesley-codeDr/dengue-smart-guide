@@ -21,10 +21,12 @@
 /* Typography */
 .modern-section-title {
   @apply text-3xl md:text-4xl font-bold text-gray-800 mb-4;
+  letter-spacing: -0.02em;
 }
 
 .modern-section-subtitle {
   @apply text-lg text-gray-600 max-w-3xl mx-auto;
+  line-height: 1.6;
 }
 
 .modern-footer-title {
@@ -38,7 +40,7 @@
 /* Element styles */
 .modern-button {
   @apply bg-primary text-white rounded-lg px-6 py-3 font-medium transition-all duration-300
-         hover:bg-primary/90 hover:shadow-lg
+         hover:bg-primary/90 hover:shadow-lg hover:scale-[1.01]
          active:translate-y-0.5 active:shadow-none
          disabled:opacity-60 disabled:pointer-events-none
          shadow-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2;
@@ -46,7 +48,7 @@
 
 .modern-button-secondary {
   @apply bg-white text-gray-700 border border-gray-200 rounded-lg px-6 py-3 font-medium transition-all duration-300
-         hover:bg-gray-50 hover:shadow-lg
+         hover:bg-gray-50 hover:shadow-lg hover:scale-[1.01]
          active:translate-y-0.5 active:shadow-none
          disabled:opacity-60 disabled:pointer-events-none
          shadow-md focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-offset-2;
@@ -54,7 +56,7 @@
 
 .modern-button-accent {
   @apply bg-accent text-white rounded-lg px-6 py-3 font-medium transition-all duration-300
-         hover:bg-accent/90 hover:shadow-lg
+         hover:bg-accent/90 hover:shadow-lg hover:scale-[1.01]
          active:translate-y-0.5 active:shadow-none
          disabled:opacity-60 disabled:pointer-events-none
          shadow-md focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2;
@@ -75,7 +77,8 @@
 }
 
 .modern-gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary to-blue-600;
+  letter-spacing: -0.02em;
 }
 
 /* Decorative elements */
