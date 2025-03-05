@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { ArrowRight, Video } from "lucide-react";
 
@@ -39,6 +38,12 @@ const Hero = ({ onStartAssessment }: HeroProps) => {
                border border-white/20
                transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02]">
                
+            <div className="text-center mb-4">
+              <p className="font-semibold">WellWave Apresenta</p>
+              <p className="text-xl font-bold">WaveScan</p>
+              <p className="text-xl font-bold">Dengue</p>
+            </div>
+            
             <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/5 to-secondary/5 opacity-50 animate-pulse"></span>
             
             <div className="flex items-center gap-3 z-10">
