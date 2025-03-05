@@ -98,7 +98,7 @@
 }
 
 .nav-link {
-  @apply text-gray-600 font-medium relative overflow-hidden group;
+  @apply text-gray-600 font-medium relative overflow-hidden;
   transition: color 0.3s ease;
 }
 

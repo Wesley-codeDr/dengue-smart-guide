@@ -45,7 +45,7 @@ const Header = ({ handleLogoClick, scrollToSection, logo }: HeaderProps) => {
                 <a
                   href={item.href}
                   onClick={(e) => { e.preventDefault(); item.action(); }}
-                  className="nav-link py-2 px-1"
+                  className="nav-link py-2 px-1 group"
                 >
                   {item.name}
                 </a>
