@@ -19,6 +19,10 @@ export default {
       },
     },
     extend: {
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -63,6 +67,7 @@ export default {
           DEFAULT: "#FFFFFF",
           foreground: "#1A202C",
         },
+        success: "#34c759", // Apple green success color
       },
       borderRadius: {
         lg: "var(--radius)",

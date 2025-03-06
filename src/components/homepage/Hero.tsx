@@ -47,7 +47,7 @@ const Hero = ({ onStartAssessment }: HeroProps) => {
           </div>
         </h1>
         
-        {/* Badge */}
+        {/* Badge with enhanced animation */}
         <div className="flex justify-center mb-10">
           <div className="badge group relative flex items-center gap-3 px-6 py-3.5 rounded-full
                bg-gradient-to-r from-primary/15 via-white/95 to-secondary/15
@@ -55,10 +55,13 @@ const Hero = ({ onStartAssessment }: HeroProps) => {
                border border-white/20
                transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02]">
                
-            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/5 to-secondary/5 opacity-50 animate-pulse"></span>
+            {/* Enhanced pulsing effect with multiple layers */}
+            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 opacity-70 animate-pulse"></span>
+            <span className="absolute inset-0 rounded-full bg-gradient-conic from-primary/20 via-transparent to-primary/20 opacity-40 animate-spin-slow"></span>
+            <span className="absolute inset-0 rounded-full bg-gradient-to-tr from-accent/5 via-transparent to-accent/5 opacity-50 blur-sm animate-pulse-slow"></span>
             
             <div className="flex items-center gap-3 z-10">
-              <span className="flex h-2 w-2 rounded-full bg-success animate-pulse"></span>
+              <span className="flex h-2 w-2 rounded-full bg-success animate-pulse shadow-[0_0_8px_rgba(52,199,89,0.8)]"></span>
               <span className="font-medium text-sm bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-900">
                 Ferramenta Inovadora
               </span>
