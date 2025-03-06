@@ -32,6 +32,22 @@ const Hero = ({ onStartAssessment }: HeroProps) => {
       
       {/* Main content */}
       <div className="modern-container relative z-10 animate-fadeUp opacity-0">
+        {/* Title intro */}
+        <div className="title-intro text-sm font-semibold tracking-wider uppercase text-gray-600 mb-6 animate-fadeIn opacity-0" style={{ animationDelay: "0.6s" }}>
+          WellWave Apresenta
+        </div>
+        
+        {/* Main title */}
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight animate-fadeIn opacity-0" style={{ animationDelay: "0.7s" }}>
+          <div className="title-gradient bg-gradient-to-r from-[#00C9FF] via-primary to-[#06D6A0] bg-clip-text text-transparent bg-size-300 animate-gradient-shift">
+            WaveScan
+          </div>
+          <div className="title-gradient bg-gradient-to-r from-[#00C9FF] via-primary to-[#06D6A0] bg-clip-text text-transparent bg-size-300 animate-gradient-shift">
+            Dengue
+          </div>
+        </h1>
+        
+        {/* Badge */}
         <div className="flex justify-center mb-10">
           <div className="badge group relative flex items-center gap-3 px-6 py-3.5 rounded-full
                bg-gradient-to-r from-primary/15 via-white/95 to-secondary/15
@@ -44,33 +60,24 @@ const Hero = ({ onStartAssessment }: HeroProps) => {
             <div className="flex items-center gap-3 z-10">
               <span className="flex h-2 w-2 rounded-full bg-success animate-pulse"></span>
               <span className="font-medium text-sm bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-900">
-                Avaliação rápida e confiável
+                Ferramenta Inovadora
               </span>
             </div>
           </div>
         </div>
         
-        <div className="title-intro text-sm font-semibold tracking-wider uppercase text-gray-600 mb-6 animate-fadeIn opacity-0" style={{ animationDelay: "0.6s" }}>
-          WellWave Apresenta
-        </div>
-        
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight animate-fadeIn opacity-0" style={{ animationDelay: "0.7s" }}>
-          <div className="title-gradient bg-gradient-to-r from-[#00C9FF] via-primary to-[#06D6A0] bg-clip-text text-transparent bg-size-300 animate-gradient-shift">
-            WaveScan
-          </div>
-          <div className="title-gradient bg-gradient-to-r from-[#00C9FF] via-primary to-[#06D6A0] bg-clip-text text-transparent bg-size-300 animate-gradient-shift">
-            Dengue
-          </div>
-        </h1>
-        
-        <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed animate-fadeIn opacity-0" style={{ animationDelay: "0.9s" }}>
-          Detectando riscos invisíveis em segundos. Nossa tecnologia de avaliação inteligente identifica sintomas de dengue em apenas 2 minutos, ajudando você a tomar decisões rápidas sobre sua saúde.
+        {/* Tagline */}
+        <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8 leading-relaxed animate-fadeIn opacity-0" style={{ animationDelay: "0.9s" }}>
+          <span className="text-gray-700 font-medium">E se você pudesse descobrir em apenas 2 minutinhos se aquela febre e dor no corpo são sinais de dengue?</span>{" "}
+          <span className="text-gray-600">É rápido como tirar uma selfie e pode fazer toda diferença enquanto você espera sua consulta!</span>
         </p>
         
+        {/* Disclaimer */}
         <p className="text-gray-600 text-sm mb-8 italic animate-fadeIn opacity-0" style={{ animationDelay: "1.2s" }}>
-          O WaveScan não substitui a avaliação médica, mas oferece uma primeira linha de defesa através de análise avançada de sintomas.
+          Não substitui uma consulta médica, mas é como ter aquele amigo médico que dá aquela dica antes de você ir ao hospital.
         </p>
         
+        {/* Buttons */}
         <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-4 animate-fadeIn opacity-0" style={{ animationDelay: "1.5s" }}>
           <motion.button
             onClick={onStartAssessment}
@@ -79,7 +86,7 @@ const Hero = ({ onStartAssessment }: HeroProps) => {
             whileTap={{ scale: 0.98 }}
             aria-label="Iniciar Avaliação"
           >
-            <span>Iniciar Avaliação</span>
+            <span>Descobrir Agora</span>
             <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
           </motion.button>
           <motion.button
@@ -87,7 +94,7 @@ const Hero = ({ onStartAssessment }: HeroProps) => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span>Consulta Médica</span>
+            <span>Falar com Médico</span>
             <Video className="ml-2 h-5 w-5" />
           </motion.button>
         </div>
@@ -99,14 +106,14 @@ const Hero = ({ onStartAssessment }: HeroProps) => {
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-primary">
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
               </svg>
-              <span className="text-gray-600 text-sm">94% de precisão</span>
+              <span className="text-gray-600 text-sm">Super preciso</span>
             </div>
             <div className="flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-primary">
                 <circle cx="12" cy="12" r="10"></circle>
                 <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
-              <span className="text-gray-600 text-sm">Apenas 2 minutos</span>
+              <span className="text-gray-600 text-sm">Só 2 minutinhos</span>
             </div>
             <div className="flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-primary">
@@ -115,7 +122,7 @@ const Hero = ({ onStartAssessment }: HeroProps) => {
                 <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
               </svg>
-              <span className="text-gray-600 text-sm">+20.000 avaliações</span>
+              <span className="text-gray-600 text-sm">+ 1000 pessoas já usaram</span>
             </div>
           </div>
         </div>
@@ -127,7 +134,7 @@ const Hero = ({ onStartAssessment }: HeroProps) => {
             <div className="avatar w-6 h-6 rounded-full bg-primary mr-[-8px] border-2 border-white"></div>
             <div className="avatar w-6 h-6 rounded-full bg-secondary border-2 border-white"></div>
           </div>
-          <span className="text-gray-600 text-sm">237 pessoas usando hoje</span>
+          <span className="text-gray-600 text-sm">30 pessoas usando agora mesmo</span>
         </div>
       </div>
     </section>
