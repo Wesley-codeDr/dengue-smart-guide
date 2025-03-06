@@ -30,13 +30,11 @@ const AboutSection = ({ logo }: AboutSectionProps) => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="relative max-w-xs mx-auto md:mx-0 mb-6 md:mb-0 group">
-              <div className="absolute inset-0 rounded-xl bg-gradient-conic from-primary/30 via-transparent to-primary/30 opacity-70 animate-spin-slow blur-sm"></div>
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-accent/20 via-transparent to-accent/20 opacity-50 blur-md animate-pulse-slow"></div>
+            <div className="max-w-xs mx-auto md:mx-0 mb-6 md:mb-0">
               <img 
                 src={logo} 
                 alt="Wellwave Logo" 
-                className="h-auto w-full max-w-[280px] relative z-10 transition-all duration-500 group-hover:scale-105" 
+                className="h-auto w-full max-w-[280px]" 
               />
             </div>
           </motion.div>
