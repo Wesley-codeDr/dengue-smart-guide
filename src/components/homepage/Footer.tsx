@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 
 type FooterProps = {
@@ -41,7 +40,7 @@ const Footer = ({ logo }: FooterProps) => {
               </motion.a>
               <motion.a
                 href="#"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-gray-400 hover:text-white hover:bg-primary transition-all duration-300"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-gray-400 hover:text-white hover:bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 transition-all duration-300"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -51,7 +50,7 @@ const Footer = ({ logo }: FooterProps) => {
               </motion.a>
               <motion.a
                 href="#"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-gray-400 hover:text-white hover:bg-primary transition-all duration-300"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-gray-400 hover:text-white hover:bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 transition-all duration-300"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -121,44 +120,6 @@ const Footer = ({ logo }: FooterProps) => {
                 </a>
               </li>
             </ul>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <h3 className="modern-footer-title">Horário de Atendimento</h3>
-            <div className="space-y-3 text-gray-400">
-              <div className="flex items-center">
-                <div className="mr-3 p-2 rounded-full bg-gray-800 text-primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                </div>
-                <div>Segunda - Sexta: 8h às 20h</div>
-              </div>
-              <div className="flex items-center">
-                <div className="mr-3 p-2 rounded-full bg-gray-800 text-primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                </div>
-                <div>Sábado: 8h às 14h</div>
-              </div>
-              <div className="flex items-center">
-                <div className="mr-3 p-2 rounded-full bg-gray-800 text-primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                </div>
-                <div>Domingo: Plantão online</div>
-              </div>
-            </div>
           </motion.div>
         </div>
         
