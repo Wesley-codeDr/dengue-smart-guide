@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
@@ -25,7 +24,7 @@ const calculateRiskScore = (formData: any) => {
 
   // Comorbidades (1 ponto cada)
   formData.basicInfo.comorbidities.forEach((comorbidity: string) => {
-    if (comorbidity === "immunosuppression") {
+    if (comorbidity === "immunossuppression") {
       riskScore += 2; // Imunossupressão vale 2 pontos
     } else {
       riskScore += 1;

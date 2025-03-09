@@ -1,4 +1,3 @@
-
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import type { Comorbidity } from "../../types";
@@ -6,6 +5,7 @@ import type { Comorbidity } from "../../types";
 type ComorbidityCheckboxesProps = {
   selectedComorbidities: string[];
   onChange: (comorbidity: string) => void;
+  error?: string;
 };
 
 const comorbidities: Comorbidity[] = [
@@ -18,6 +18,7 @@ const comorbidities: Comorbidity[] = [
 export const ComorbidityCheckboxes = ({
   selectedComorbidities,
   onChange,
+  error,
 }: ComorbidityCheckboxesProps) => {
   return (
     <div className="space-y-3">
@@ -42,6 +43,7 @@ export const ComorbidityCheckboxes = ({
           </div>
         ))}
       </div>
+      {error && <p className="text-sm text-red-500">{error}</p>}
     </div>
   );
 };

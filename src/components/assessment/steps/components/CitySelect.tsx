@@ -1,4 +1,3 @@
-
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -26,10 +25,14 @@ const cities = [
 ];
 
 export const CitySelect = ({ value, onChange, error }: CitySelectProps) => {
+  const handleCityChange = (value: string) => {
+    onChange(value);
+  };
+
   return (
     <div>
       <Label htmlFor="city">Cidade</Label>
-      <Select value={value} onValueChange={onChange}>
+      <Select value={value} onValueChange={handleCityChange}>
         <SelectTrigger className={error ? "border-red-500" : ""}>
           <SelectValue placeholder="Selecione sua cidade" />
         </SelectTrigger>

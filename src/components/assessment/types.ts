@@ -1,4 +1,3 @@
-
 export type FormErrors = {
   name: string;
   birthDate: string;
@@ -21,4 +20,9 @@ export type BasicInfoFormData = {
   city: string;
   comorbidities: string[];
   medications: string[];
+  travelHistory: TravelHistory;
+};
+
+export type TravelHistory = {
+  visitedAreas: string[];
 };

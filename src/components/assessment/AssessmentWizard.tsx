@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
@@ -6,6 +5,7 @@ import BasicInfoStep from "./steps/BasicInfoStep";
 import SymptomsStep from "./steps/SymptomsStep";
 import WarningSignsStep from "./steps/WarningSignsStep";
 import ResultStep from "./steps/ResultStep";
+import TravelHistoryStep from "./steps/TravelHistoryStep";
 
 export type AssessmentStepProps = {
   onNext: () => void;
@@ -45,6 +45,9 @@ const AssessmentWizard = () => {
       difficultyBreathing: false,
       rapidBreathing: false,
     },
+    travelHistory: {
+      visitedAreas: [],
+    },
   });
 
   const handleNext = () => {
@@ -74,6 +77,11 @@ const AssessmentWizard = () => {
       component: WarningSignsStep,
       title: "Sinais de Alarme",
       description: "Sinais que requerem atenção especial",
+    },
+    {
+      component: TravelHistoryStep,
+      title: "Histórico de Viagens",
+      description: "Áreas visitadas recentemente",
     },
     {
       component: ResultStep,

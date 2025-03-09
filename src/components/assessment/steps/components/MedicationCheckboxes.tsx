@@ -1,4 +1,3 @@
-
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import type { Medication } from "../../types";
@@ -6,6 +5,7 @@ import type { Medication } from "../../types";
 type MedicationCheckboxesProps = {
   selectedMedications: string[];
   onChange: (medication: string) => void;
+  error?: string;
 };
 
 const medications: Medication[] = [
@@ -16,6 +16,7 @@ const medications: Medication[] = [
 export const MedicationCheckboxes = ({
   selectedMedications,
   onChange,
+  error,
 }: MedicationCheckboxesProps) => {
   return (
     <div className="space-y-3">
@@ -40,6 +41,7 @@ export const MedicationCheckboxes = ({
           </div>
         ))}
       </div>
+      {error && <p className="text-sm text-red-500">{error}</p>}
     </div>
   );
 };
